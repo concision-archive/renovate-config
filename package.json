@@ -1,6 +1,6 @@
 {
   "name": "renovate-config-concision",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Concision preset for Renovate",
   "contributors": [
     "Daniel Roe <daniel@concision.co.uk>"
