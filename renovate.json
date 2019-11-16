@@ -1,3 +1,4 @@
 {
-  "extends": ["concision"]
+  "extends": ["concision"],
+  "automerge": true
 }
