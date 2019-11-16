@@ -1,0 +1,62 @@
+{
+  "name": "renovate-config-concision",
+  "version": "0.1.0",
+  "description": "Concision preset for Renovate",
+  "contributors": [
+    "Daniel Roe <daniel@concision.co.uk>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/concisionuk/renovate-config",
+  "repository": {
+    "type": "git",
+    "url": "git@git.concision.uk/concisionuk/renovate-config.git"
+  },
+  "scripts": {
+    "validate": "renovate-config-validator",
+    "test": "yarn validate",
+    "release": "standard-version && git push --follow-tags && npm publish",
+    "prepare": "yarn test"
+  },
+  "files": [],
+  "renovate-config": {
+    "default": {
+      "description": "Default config for Concision repositories",
+      "extends": [
+        "config:base",
+        "packages:linters",
+        "schedule:nonOfficeHours",
+        ":labels(dependencies,devops)",
+        ":pinAllExceptPeerDependencies",
+        ":maintainLockFilesWeekly",
+        ":enableVulnerabilityAlerts",
+        ":automergeLinters",
+        ":automergeTypes",
+        ":semanticCommitTypeAll(chore)",
+        ":automergePatch"
+      ],
+      "masterIssue": true,
+      "masterIssueTitle": "Update dependencies",
+      "gitLabAutomerge": true,
+      "rebaseStalePrs": true,
+      "stabilityDays": 3,
+      "prCreation": "not-pending",
+      "rangeStrategy": "bump",
+      "npm": {
+        "commitMessageTopic": "{{prettyDepType}} {{depName}}"
+      },
+      "packageRules": [
+        {
+          "packagePatterns": [
+            "^tiptap"
+          ],
+          "groupName": "all tiptap dependencies",
+          "groupSlug": "all-tiptap"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "renovate": "19.61.8",
+    "standard-version": "7.0.0"
+  }
+}
