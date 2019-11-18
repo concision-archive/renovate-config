@@ -57,6 +57,6 @@
   },
   "devDependencies": {
     "renovate": "19.66.13",
-    "standard-version": "7.0.0"
+    "standard-version": "7.0.1"
   }
 }
